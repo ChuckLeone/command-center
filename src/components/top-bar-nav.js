@@ -1,29 +1,76 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
+import Badge from 'material-ui/Badge';
 import {List, ListItem} from 'material-ui/List';
+import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import FlatButton from 'material-ui/FlatButton';
+import UserAvatar from './user-avatar';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 const styles = {
   title: {
     cursor: 'pointer',
-    float: 'left'
   },
   drawer: {
     backgroundColor: '#eaeaea',
     textAlign: 'left',
         title: {
-        backgroundColor: '#787878',
-        color: '#ffffff',
-        marginTop: '-8px',
-        padding: '0',
-        height: '55px'
-    }
-  }
+            backgroundColor: '#787878',
+            color: '#ffffff'
+        },
+        MenuItem:{ 
+            a: {
+                textDecoration: 'none',
+                color: '#000000'
+            }
+        }
+  },
+  userMenu: {
+      color: 'white',
+      textAlign: 'left',
+      backgroundColor: '#333333',
+      title: {
+        fontSize: '14px'
+      },
+      root: {
+          backgroundColor: '#333333'
+      },
+      avatar: {
+        color: 'white',
+      },
+      hr: {
+        height: '2px',
+        backgroundColor: 'rgb(95, 95, 95)'
+      }, 
+      active: {
+        color: 'white',
+        borderLeft: '3px solid greenyellow'
+      },
+      title: {
+          fontSize: '14px',
+          backgroundColor: '#333333'
+      }
+  },
+  icons: {
+      avatar: {
+          color: 'green'
+      },
+      settings: {
+          color: 'darkorchid'
+      },
+      discovery: {
+          color: 'deepskyblue'
+      },
+      commandCenter: {
+          color: 'white'
+      }
+  },
 };
 
 class TopBar extends React.Component {
@@ -38,37 +85,57 @@ class TopBar extends React.Component {
 
     handleClose = () => this.setState({open: false});
 
+    handleUserToggle = () => this.setState({open: !this.state.open});
+
     render() {
         return (
             <div>
             <AppBar
-                title={<span style={styles.title}>App Name</span>}
+                title={<span style={styles.title}>Organization Name</span>}
                 onLeftIconButtonTouchTap={this.handleToggle}
+                onRightIconButtonTouchTap={this.handleUserToggle}
                 iconElementLeft={<IconButton><NavigationMenu /></IconButton>}
-                iconElementRight={<FlatButton label="Organization Name" />}
+                iconElementRight={<UserAvatar />}
                 style={{
                     backgroundColor: '#393939'
                 }} />
                 <Drawer
                     docked={false}
-                    width={200}
+                    width={300}
                     open={this.state.open}
                     onRequestChange={(open) => this.setState({open})} 
                     style={styles.drawer}>
-                    <List>
-                    <ListItem onTouchTap={this.handleClose} primaryText="Home" leftIcon={<i className="fa fa-home"></i>}><a href="http://www.cnn.com"></a></ListItem>
-                    <ListItem onTouchTap={this.handleClose} primaryText="Roster" leftIcon={<i className="fa fa-user-plus"></i>}></ListItem>
-                    <ListItem onTouchTap={this.handleClose} primaryText="About" leftIcon={<i className="fa fa-info"></i>}></ListItem>
-                    <ListItem onTouchTap={this.handleClose} primaryText="Calendar" leftIcon={<i className="fa fa-calendar"></i>}></ListItem>
-                    <ListItem onTouchTap={this.handleClose} primaryText="News" leftIcon={<i className="fa fa-newspaper-o"></i>}></ListItem>
-                    <ListItem onTouchTap={this.handleClose} primaryText="Gallery" leftIcon={<i className="fa fa-image"></i>}></ListItem>
-                    <ListItem onTouchTap={this.handleClose} primaryText="Documents" leftIcon={<i className="fa fa-file-text-o"></i>}></ListItem>
-                    <ListItem onTouchTap={this.handleClose} primaryText="Forms" leftIcon={<i className="fa fa-files-o"></i>}></ListItem>
-                    <ListItem onTouchTap={this.handleClose} primaryText="Service Hours" leftIcon={<i className="fa fa-hourglass-3"></i>}></ListItem>
-                    <ListItem onTouchTap={this.handleClose} primaryText="Elections" leftIcon={<i className="fa fa-gavel"></i>}></ListItem>
-                    <ListItem onTouchTap={this.handleClose} primaryText="Finance" leftIcon={<i className="fa fa-money"></i>}></ListItem>
-                    </List>
+                     <AppBar style={styles.drawer.title} title="Command Center" />
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-home"></i>}><a href="#/" style={styles.drawer.MenuItem.a}>Home</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-user-plus"></i>}><a href="#/roster" style={styles.drawer.MenuItem.a}>Roster</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-info"></i>}><a href="#/about" style={styles.drawer.MenuItem.a}>About</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-calendar"></i>}><a href="#/events" style={styles.drawer.MenuItem.a}>Events</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-newspaper-o"></i>}><a href="#/news" style={styles.drawer.MenuItem.a}>News</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-image"></i>}><a href="#/gallery" style={styles.drawer.MenuItem.a}>Gallery</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-file-text-o"></i>}><a href="#/docs" style={styles.drawer.MenuItem.a}>Docs</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-files-o"></i>}><a href="#/forms" style={styles.drawer.MenuItem.a}>Forms</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-hourglass-3"></i>}><a href="#/service-hours" style={styles.drawer.MenuItem.a}>Service Hours</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-gavel"></i>}><a href="#/elections" style={styles.drawer.MenuItem.a}>Elections</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-money"></i>}><a href="#/finance" style={styles.drawer.MenuItem.a}>Finance</a></MenuItem>
+                    <Divider />
+                     <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-gear"></i>}><a href="#/settings" style={styles.drawer.MenuItem.a}>Settings</a></MenuItem>
                 </Drawer>
+
+                 <Drawer width={250} openSecondary={true} open={this.state.open} containerStyle={styles.userMenu.root}>
+                    <AppBar style={styles.userMenu.title} iconElementLeft={<FlatButton label="Bruce Wayne" style={styles.userMenu.avatar} />} iconElementRight={<UserAvatar style={styles.userMenu.avatar} />} />
+                    <List style={styles.userMenu}>
+                        <ListItem onTouchTap={this.handleClose} primaryText="Messages" style={styles.userMenu} leftIcon={<i className="fa fa-envelope"></i>}><a href="#/" style={styles.drawer.MenuItem.a}></a></ListItem>
+                        <Divider style={styles.userMenu.hr} />
+                        <ListItem primaryText="My Profile" style={styles.userMenu} leftIcon={<i className="fa fa-user-circle" style={styles.icons.avatar}></i>} />
+                        <Divider style={styles.userMenu.hr} />
+                        <ListItem primaryText="Settings" style={styles.userMenu} leftIcon={<i className="fa fa-gear" style={styles.icons.settings}></i>} />
+                        <Divider style={styles.userMenu.hr} />
+                        <ListItem primaryText="Organization Home" style={styles.userMenu} leftIcon={<i className="fa fa-home" style={styles.icons.discovery}></i>} />
+                        <Divider style={styles.userMenu.hr} />
+                        <ListItem primaryText="Command Center" style={styles.userMenu.active} leftIcon={<i className="fa fa-rocket" style={styles.icons.commandCenter}></i>} />
+                        <Divider style={styles.userMenu.hr} />
+                    </List>
+                 </Drawer>
             </div>
         );
     }
