@@ -13,6 +13,17 @@ const styles = {
     cursor: 'pointer',
     float: 'left'
   },
+  drawer: {
+    backgroundColor: '#eaeaea',
+    textAlign: 'left',
+        title: {
+        backgroundColor: '#787878',
+        color: '#ffffff',
+        marginTop: '-8px',
+        padding: '0',
+        height: '55px'
+    }
+  }
 };
 
 class TopBar extends React.Component {
@@ -43,16 +54,9 @@ class TopBar extends React.Component {
                     width={200}
                     open={this.state.open}
                     onRequestChange={(open) => this.setState({open})} 
-                    style={{
-                        backgroundColor: '#eaeaea',
-                        textAlign: 'left'
-                    }}>
+                    style={styles.drawer}>
                     <List>
-                    <ListItem
-                    style={{
-                        backgroundColor: '#787878',
-                        color: '#ffffff'
-                    }}>Organization Name</ListItem>
+                    <ListItem onTouchTap={this.handleClose} primaryText="Home" leftIcon={<i className="fa fa-home"></i>}><a href="http://www.cnn.com"></a></ListItem>
                     <ListItem onTouchTap={this.handleClose} primaryText="Roster" leftIcon={<i className="fa fa-user-plus"></i>}></ListItem>
                     <ListItem onTouchTap={this.handleClose} primaryText="About" leftIcon={<i className="fa fa-info"></i>}></ListItem>
                     <ListItem onTouchTap={this.handleClose} primaryText="Calendar" leftIcon={<i className="fa fa-calendar"></i>}></ListItem>

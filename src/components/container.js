@@ -30,7 +30,6 @@ const styles = {
 };
 
 class Container extends React.Component {
-  
     
     render() {
         return (      
