@@ -8,14 +8,14 @@ import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import UserMenu from 'material-ui/svg-icons/social/person';
 import FlatButton from 'material-ui/FlatButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
 const styles = {
   avatar: {
-      margin: '0'
+      margin: '10px'
   },
   title: {
     cursor: 'pointer',
+    float: 'left'
   },
   drawer: {
     backgroundColor: '#eaeaea',
@@ -104,74 +104,56 @@ const styles = {
   }
 };
 
-function saySomething() {
-  console.log('something');
-}
+class TopBar extends React.Component {
 
-function handleTouchTap() {
-  alert('onTouchTap triggered on the title component');
-  saySomething();
-}
+      constructor(props) {
+        super(props);
+        this.state = {open: false};
+      };
 
-function handleToggle() {
-  AppSwitcher().open
-}
+      handleToggle = () => this.setState({open: !this.state.open});
 
-const handleUserToggle = () => AppSwitcher().open({open: !open});
+      handleOpen = () => this.seteState({open: !this.state.open});
 
-function AppSwitcher() {
+      handleClose = () => this.setState({open: false});
 
-        const setState = {open: false};
-
-        handleToggle = () => this.setState({open: !this.state.open});
-
-    handleOpen = () => this.seteState({open: !this.state.open});
-
-    handleClose = () => this.setState({open: false});
-
-    handleUserToggle = () => this.setState({open: !this.state.open});
-
+      render() {
         return (
             <div>
+            <AppBar
+              title={<span style={styles.title}>App Name</span>}
+              onLeftIconButtonTouchTap={this.handleToggle}
+              iconElementLeft={<IconButton><NavigationMenu /></IconButton>}
+              iconElementRight={<FlatButton label="Organization Name"></FlatButton>}
+              style={{
+                backgroundColor: '#393939'
+              }} 
+            />
              <Drawer
                     docked={false}
                     width={300}
                     onRequestChange={(open) => this.setState({open})} 
-                    open={setState.true}
+                    open={this.state.open}
                     style={styles.drawer}>
                      <AppBar style={styles.drawer.title} title="Command Center" />
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-home"></i>}><a href="#/" style={styles.drawer.MenuItem.a}>Home</a></MenuItem>
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-user-plus"></i>}><a href="#/roster" style={styles.drawer.MenuItem.a}>Roster</a></MenuItem>
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-info"></i>}><a href="#/about" style={styles.drawer.MenuItem.a}>About</a></MenuItem>
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-calendar"></i>}><a href="#/events" style={styles.drawer.MenuItem.a}>Events</a></MenuItem>
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-newspaper-o"></i>}><a href="#/news" style={styles.drawer.MenuItem.a}>News</a></MenuItem>
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-image"></i>}><a href="#/gallery" style={styles.drawer.MenuItem.a}>Gallery</a></MenuItem>
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-file-text-o"></i>}><a href="#/docs" style={styles.drawer.MenuItem.a}>Docs</a></MenuItem>
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-files-o"></i>}><a href="#/forms" style={styles.drawer.MenuItem.a}>Forms</a></MenuItem>
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-hourglass-3"></i>}><a href="#/service-hours" style={styles.drawer.MenuItem.a}>Service Hours</a></MenuItem>
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-gavel"></i>}><a href="#/elections" style={styles.drawer.MenuItem.a}>Elections</a></MenuItem>
-                    <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-money"></i>}><a href="#/finance" style={styles.drawer.MenuItem.a}>Finance</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-home"></i>}><a href="#/" style={styles.drawer.MenuItem.a}>Home</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-user-plus"></i>}><a href="#/roster" style={styles.drawer.MenuItem.a}>Roster</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-info"></i>}><a href="#/about" style={styles.drawer.MenuItem.a}>About</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-calendar"></i>}><a href="#/events" style={styles.drawer.MenuItem.a}>Events</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-newspaper-o"></i>}><a href="#/news" style={styles.drawer.MenuItem.a}>News</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-image"></i>}><a href="#/gallery" style={styles.drawer.MenuItem.a}>Gallery</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-file-text-o"></i>}><a href="#/docs" style={styles.drawer.MenuItem.a}>Docs</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-files-o"></i>}><a href="#/forms" style={styles.drawer.MenuItem.a}>Forms</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-hourglass-3"></i>}><a href="#/service-hours" style={styles.drawer.MenuItem.a}>Service Hours</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-gavel"></i>}><a href="#/elections" style={styles.drawer.MenuItem.a}>Elections</a></MenuItem>
+                    <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-money"></i>}><a href="#/finance" style={styles.drawer.MenuItem.a}>Finance</a></MenuItem>
                     <Divider />
-                     <MenuItem onTouchTap={handleToggle} leftIcon={<i className="fa fa-gear"></i>}><a href="#/settings" style={styles.drawer.MenuItem.a}>Settings</a></MenuItem>
+                     <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-gear"></i>}><a href="#/settings" style={styles.drawer.MenuItem.a}>Settings</a></MenuItem>
                 </Drawer>
             </div>
-        );
+        )
+      };
 
 }
-
-const TopBar = () => (
-  <div>
-  <AppBar
-    title={<span style={styles.title}>App Name</span>}
-    onLeftIconButtonTouchTap={AppSwitcher.handleToggle}
-    iconElementLeft={<IconButton><NavigationMenu /></IconButton>}
-    iconElementRight={<FlatButton label="Organization Name"></FlatButton>}
-    style={{
-      backgroundColor: '#393939'
-    }} 
-    />
-  <AppSwitcher open={AppSwitcher.handleToggle}/>
-  </div>
-);
 
 export default TopBar;

@@ -13,7 +13,6 @@ import FlatButton from 'material-ui/FlatButton';
 import Avatar from 'material-ui/Avatar';
 import UserAvatar from './user-avatar';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
 const styles = {
   avatar: {
