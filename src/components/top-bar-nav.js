@@ -38,6 +38,9 @@ const styles = {
       color: 'white',
       textAlign: 'left',
       backgroundColor: '#333333',
+      list: {
+          padding: '16px 16px 16px 45px'
+      },
       title: {
         fontSize: '14px'
       },
@@ -62,7 +65,14 @@ const styles = {
       badges: {
         color: 'white',
         backgroundColor: 'red'
-      }
+      },
+      userCard: {
+          backgroundColor: 'black',         
+          color: 'white',
+          secondaryText: {
+              color: 'white'
+          }
+      },
   },
   icons: {
       avatar: {
@@ -80,6 +90,9 @@ const styles = {
       commandCenter: {
           color: 'white'
       }
+  },
+  secondaryText: {
+      color: 'white'
   }
 };
 
@@ -132,9 +145,16 @@ class TopBar extends React.Component {
                      <MenuItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-gear"></i>}><a href="#/settings" style={styles.drawer.MenuItem.a}>Settings</a></MenuItem>
                 </Drawer>
 
-                <Drawer width={250} openSecondary={true} open={this.state.open} containerStyle={styles.userMenu.root}>
-                    <AppBar style={styles.userMenu.title} iconElementLeft={<FlatButton label="Bruce Wayne" style={styles.userMenu.avatar} />} iconElementRight={<UserAvatar style={styles.userMenu.avatar} />} />
+                <Drawer width={300} openSecondary={true} open={this.state.open} containerStyle={styles.userMenu.root}>
+                    <AppBar style={styles.userMenu.title} iconElementLeft={<FlatButton label="Bruce W" style={styles.userMenu.avatar} />} iconElementRight={<UserAvatar style={styles.userMenu.avatar} />} />
                     <List style={styles.userMenu}>
+                       <ListItem
+                        leftAvatar={<UserAvatar />}
+                        rightIcon={<i className="fa fa-edit"></i>}
+                        primaryText="Bruce Wayne"
+                        secondaryText="bwayne@ublinked.edu"
+                        style={styles.userMenu.userCard}
+                        />
                         <ListItem onTouchTap={this.handleClose} primaryText="Messages" style={styles.userMenu} rightIcon={<Badge badgeContent={4} badgeStyle={styles.userMenu.badges}/>} leftIcon={<i className="fa fa-envelope" style={styles.icons.messages}></i>}><a href="#/" style={styles.drawer.MenuItem.a}></a></ListItem>
                         <Divider style={styles.userMenu.hr} />
                         <ListItem onTouchTap={this.handleClose} primaryText="My Profile" style={styles.userMenu} leftIcon={<i className="fa fa-user-circle" style={styles.icons.avatar}></i>} />
@@ -143,7 +163,7 @@ class TopBar extends React.Component {
                         <Divider style={styles.userMenu.hr} />
                         <ListItem onTouchTap={this.handleClose} primaryText="Organization Home" style={styles.userMenu} leftIcon={<i className="fa fa-home" style={styles.icons.discovery}></i>} />
                         <Divider style={styles.userMenu.hr} />
-                        <ListItem onTouchTap={this.handleClose} primaryText="Command Center" style={styles.userMenu.active} leftIcon={<i className="fa fa-rocket" style={styles.icons.commandCenter}></i>} />
+                        <ListItem onTouchTap={this.handleClose} primaryText="Command Center" style={styles.userMenu.active} rightIcon={<Badge badgeContent={13} badgeStyle={styles.userMenu.badges}/>} leftIcon={<i className="fa fa-rocket" style={styles.icons.commandCenter}></i>} />
                         <Divider style={styles.userMenu.hr} />
                     </List>
                 </Drawer>
