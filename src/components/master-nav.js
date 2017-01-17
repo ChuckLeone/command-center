@@ -20,7 +20,7 @@ const styles = {
 const MasterNav = () => (
   <div>
     <IconMenu
-      iconButtonElement={<FlatButton label="Command Center" style={styles.MasterNav}><i className="fa fa-rocket" label="Command Center" style={styles.MasterNav.icon}></i></FlatButton>}
+      iconButtonElement={<FlatButton label="Command Center" style={styles.MasterNav}><i className="fa fa-ellipsis-v" label="Command Center" style={styles.MasterNav.icon}></i></FlatButton>}
       anchorOrigin={{horizontal: 'left', vertical: 'top'}}
       targetOrigin={{horizontal: 'left', vertical: 'top'}}
     >
