@@ -1,7 +1,6 @@
 import React from 'react';
-import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
-
+import Drawer from 'material-ui/Drawer';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Badge from 'material-ui/Badge';
@@ -14,35 +13,30 @@ import FlatButton from 'material-ui/FlatButton';
 import Avatar from 'material-ui/Avatar';
 import UserAvatar from './user-avatar';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 const styles = {
-    root: {
-        backgroundColor: '#005bbb',
-        color: '#ffffff',
-        verticalAlign: 'middle',
-        paddingBottom: '6px'
-    },
-    title: {
-        float: 'left',
-        verticalAlign: 'middle',
-        padding: '20px'
-    },
-    brand: {
-        float: 'none',
-        verticalAlign: 'middle',
-        padding: '20px'
-    },
-    logo: {
-        src: 'img/ub_white.png',
-        height: '24px',
-        width: '24px'
-    },
-    avatar: {
-        float: 'right',
-        verticalAlign: 'middle',
-        padding: '10px'
-    },
-    userMenu: {
+  avatar: {
+      margin: '0'
+  },
+  title: {
+    cursor: 'pointer',
+  },
+  drawer: {
+    backgroundColor: '#eaeaea',
+    textAlign: 'left',
+        title: {
+            backgroundColor: '#787878',
+            color: '#ffffff'
+        },
+        MenuItem:{ 
+            a: {
+                textDecoration: 'none',
+                color: '#000000'
+            }
+        }
+  },
+  userMenu: {
       color: 'white',
       textAlign: 'left',
       backgroundColor: '#333333',
@@ -166,19 +160,4 @@ class UserDrawer extends React.Component {
     }
 }
 
-class SiteHeader extends React.Component {
-    render () {
-        return (
-        <div style={styles.root}>
-            <div style={styles.avatar}>
-                <UserAvatar />
-            </div>
-            <div style={styles.title}>Command Center</div>
-            <div style={styles.brand}><img src={styles.logo.src} style={styles.logo} /> UB Linked</div>
-            <UserDrawer />
-        </div>
-        );
-    }
-};
-
-export default SiteHeader;
+export default UserDrawer;
