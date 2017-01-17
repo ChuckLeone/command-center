@@ -104,7 +104,7 @@ const styles = {
   }
 };
 
-class TopBar extends React.Component {
+class AppSwitcherBar extends React.Component {
 
       constructor(props) {
         super(props);
@@ -156,4 +156,4 @@ class TopBar extends React.Component {
 
 }
 
-export default TopBar;
+export default AppSwitcherBar;

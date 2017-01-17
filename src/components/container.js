@@ -5,7 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import {Card, CardHeader, CardMedia, CardTitle, CardText, CardActions} from 'material-ui/Card';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
-import TopBar from './top-bar';
+import AppSwitcherBar from './app-bar';
 import FontIcon from 'material-ui/FontIcon';
 import SiteHeader from './site-header';
 // import { BrowserRouter, Match, Miss, Link } from 'react-router';
@@ -35,7 +35,7 @@ class Container extends React.Component {
         return (      
         <div>         
             <SiteHeader />
-            <TopBar title="App Title" /> 
+            <AppSwitcherBar title="App Title" /> 
         </div>
         );
     }

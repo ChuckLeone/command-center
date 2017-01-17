@@ -3,6 +3,9 @@ import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 
 import Menu from 'material-ui/Menu';
+import IconMenu from 'material-ui/IconMenu';
+
+
 import MenuItem from 'material-ui/MenuItem';
 import Badge from 'material-ui/Badge';
 import {List, ListItem} from 'material-ui/List';
@@ -13,6 +16,7 @@ import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import FlatButton from 'material-ui/FlatButton';
 import Avatar from 'material-ui/Avatar';
 import UserAvatar from './user-avatar';
+import MasterNav from './master-nav';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
@@ -141,7 +145,8 @@ class SiteHeader extends React.Component {
             <AppBar
               title={<span><img src={styles.logo.src} style={styles.logo} /> UB Linked</span>}
               onRightIconButtonTouchTap={this.handleToggle}
-              iconElementLeft={<span><i style={styles.icons.icon} className="fa fa-rocket" />Command Center</span>}
+              onLeftIconButtonTouchTap={this.handleMenu}
+              iconElementLeft={<MasterNav />}
               iconElementRight={<FlatButton><UserAvatar style={styles.avatar} /></FlatButton>}
               style={styles.brand} />
             <Drawer width={300} openSecondary={true} open={this.state.open} containerStyle={styles.userMenu.root}>
