@@ -1,6 +1,5 @@
 import React from 'react';
 import {Card, CardHeader, CardMedia, CardTitle, CardText, CardActions} from 'material-ui/Card';
-
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 const TablePendingActions = () => (
