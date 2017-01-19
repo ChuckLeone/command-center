@@ -5,10 +5,9 @@ import IconButton from 'material-ui/IconButton';
 import {Card, CardHeader, CardMedia, CardTitle, CardText, CardActions} from 'material-ui/Card';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import ActionAndroid from 'material-ui/svg-icons/action/android';
-import AppSwitcherBar from './app-bar';
+import AppSwitcherBar from './app-switcher';
 import FontIcon from 'material-ui/FontIcon';
 import SiteHeader from './site-header';
-// import { BrowserRouter, Match, Miss, Link } from 'react-router';
 
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
@@ -36,6 +35,7 @@ class Container extends React.Component {
         <div>         
             <SiteHeader />
             <AppSwitcherBar title="App Title" /> 
+            <div>{this.props.children}</div>
         </div>
         );
     }

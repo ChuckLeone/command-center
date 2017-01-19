@@ -152,7 +152,7 @@ class UserDrawer extends React.Component {
                         <ListItem onTouchTap={this.handleClose} primaryText="A new event request was submitted." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
                         <ListItem onTouchTap={this.handleClose} primaryText="Bake Sale form is awaiting your approval." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
                         <Divider style={styles.userMenu.hr} />
-                         <ListItem onTouchTap={this.handleClose} primaryText="See more (15)" style={styles.userMenu} />
+                         <ListItem onTouchTap={this.handleClose} style={styles.userMenu}><a href="/activity">See more (12)</a></ListItem>
                         </List>
                 </Drawer>
             </div>

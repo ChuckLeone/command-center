@@ -2,19 +2,14 @@ import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 
-import Menu from 'material-ui/Menu';
-import IconMenu from 'material-ui/IconMenu';
 
-
-import MenuItem from 'material-ui/MenuItem';
 import Badge from 'material-ui/Badge';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import IconButton from 'material-ui/IconButton';
-import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
+
 import FlatButton from 'material-ui/FlatButton';
-import Avatar from 'material-ui/Avatar';
 import UserAvatar from './user-avatar';
 import MasterNav from './master-nav';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -25,7 +20,7 @@ const styles = {
         backgroundColor: '#005bbb',
         color: '#ffffff',
         verticalAlign: 'middle',
-        paddingBottom: '6px'
+        paddingBottom: '0'
     },
     title: {
         float: 'left',
@@ -52,6 +47,7 @@ const styles = {
       color: 'white',
       textAlign: 'left',
       backgroundColor: '#333333',
+      padding: '0',
       list: {
           padding: '16px 16px 16px 45px'
       },
@@ -74,7 +70,7 @@ const styles = {
       },
       title: {
           fontSize: '14px',
-          backgroundColor: '#333333'
+          backgroundColor: '#000000'
       },
       badges: {
         color: 'white',
@@ -120,9 +116,12 @@ const styles = {
       bottom: '0',
 
   },
-  Avatar: {
-      backgroundColor: 'azure'
-  }
+  medium: {
+    width: 60,
+    height: 60,
+    padding: 0,
+    marginTop: '-5px'
+  },
 };
 
 class SiteHeader extends React.Component {
@@ -141,44 +140,38 @@ class SiteHeader extends React.Component {
 
     render() {
         return (
-            <div style={styles.root}>            
+            <div>            
             <AppBar
               title={<span><img src={styles.logo.src} style={styles.logo} /> UB Linked</span>}
               onRightIconButtonTouchTap={this.handleToggle}
               onLeftIconButtonTouchTap={this.handleMenu}
               iconElementLeft={<MasterNav />}
-              iconElementRight={<FlatButton><UserAvatar style={styles.avatar} /></FlatButton>}
+              iconElementRight={<IconButton style={styles.medium}><UserAvatar /></IconButton>}
               style={styles.brand} />
             <Drawer width={300} openSecondary={true} open={this.state.open} containerStyle={styles.userMenu.root}>
-            <AppBar style={styles.userMenu.title} iconElementLeft={<FlatButton style={styles.userMenu.avatar} />} iconElementRight={<UserAvatar style={styles.userMenu.avatar} />} />
-            <List style={styles.userMenu}>
-                <ListItem
-                    rightIcon={<i className="fa fa-edit"></i>}
-                    primaryText="Bruce Wayne"
-                    secondaryText="bwayne@ublinked.edu"
-                    style={styles.userMenu.userCard}
-                />
-                <Divider style={styles.userMenu.hr} />
-                <ListItem onTouchTap={this.handleClose} primaryText="My Profile" style={styles.userMenu} leftIcon={<i className="fa fa-user-circle" style={styles.icons.avatar}></i>} />
-                <Divider style={styles.userMenu.hr} />
-                <ListItem onTouchTap={this.handleClose} primaryText="Settings" style={styles.userMenu} leftIcon={<i className="fa fa-gear" style={styles.icons.settings}></i>} />
-                <Divider style={styles.userMenu.hr} />
-                <ListItem onTouchTap={this.handleClose} primaryText="Organization Home" style={styles.userMenu} leftIcon={<i className="fa fa-home" style={styles.icons.discovery}></i>} />
-                <Divider style={styles.userMenu.hr} />
-                <ListItem onTouchTap={this.handleClose} primaryText="Command Center" style={styles.userMenu.active} rightIcon={<Badge badgeContent={13} badgeStyle={styles.userMenu.badges}/>} leftIcon={<i className="fa fa-rocket" style={styles.icons.commandCenter}></i>} />
+                <AppBar style={styles.userMenu.title} iconElementLeft={<FlatButton label="Bruce Wayne" style={styles.userMenu.avatar} />} iconElementRight={<UserAvatar style={styles.userMenu.avatar} />} />
+                <List style={styles.userMenu}>
+                    <Divider style={styles.userMenu.hr} />
+                    <ListItem onTouchTap={this.handleClose} primaryText="My Profile" style={styles.userMenu} leftIcon={<i className="fa fa-user-circle" style={styles.icons.avatar}></i>} />
+                    <Divider style={styles.userMenu.hr} />
+                    <ListItem onTouchTap={this.handleClose} primaryText="Settings" style={styles.userMenu} leftIcon={<i className="fa fa-gear" style={styles.icons.settings}></i>} />
+                    <Divider style={styles.userMenu.hr} />
+                    <ListItem onTouchTap={this.handleClose} primaryText="Organization Home" style={styles.userMenu} leftIcon={<i className="fa fa-home" style={styles.icons.discovery}></i>} />
+                    <Divider style={styles.userMenu.hr} />
+                    <ListItem onTouchTap={this.handleClose} primaryText="Command Center" style={styles.userMenu.active} rightIcon={<Badge badgeContent={13} badgeStyle={styles.userMenu.badges}/>} leftIcon={<i className="fa fa-rocket" style={styles.icons.commandCenter}></i>} />
                 </List>
                 <Divider style={styles.userMenu.hr} />
                 <List style={styles.ActivityFeed}>
-                <Subheader style={styles.Subheader}>Activity Feed</Subheader>
-                <ListItem onTouchTap={this.handleClose} primaryText="You submitted a request for a parking pass." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
-                <ListItem onTouchTap={this.handleClose} primaryText="A new form approval request was generated." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
-                <ListItem onTouchTap={this.handleClose} primaryText="A new event request was submitted." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
-                <ListItem onTouchTap={this.handleClose} primaryText="Bake Sale form is awaiting your approval." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
-                <Divider style={styles.userMenu.hr} />
-                    <ListItem onTouchTap={this.handleClose} primaryText="See more (15)" style={styles.userMenu} />
+                    <Subheader style={styles.Subheader}>Activity Feed</Subheader>
+                    <ListItem onTouchTap={this.handleClose} primaryText="You submitted a request for a parking pass." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
+                    <ListItem onTouchTap={this.handleClose} primaryText="A new form approval request was generated." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
+                    <ListItem onTouchTap={this.handleClose} primaryText="A new event request was submitted." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
+                    <ListItem onTouchTap={this.handleClose} primaryText="Bake Sale form is awaiting your approval." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
+                    <Divider style={styles.userMenu.hr} />
+                    <ListItem onTouchTap={this.handleClose} style={styles.userMenu}><a href="/activity">See more (12)</a></ListItem>
                 </List>
-        </Drawer>
-            </div>
+            </Drawer>
+        </div>
         );
     }
 }
