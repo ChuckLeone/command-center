@@ -83,6 +83,7 @@ const styles = {
       a: {
           color: 'white',
           textAlign: 'left',
+          textDecoration: 'none',
           visted: {
               color: 'white'
           }
