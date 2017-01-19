@@ -103,9 +103,9 @@ const User = React.createClass({
 render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <Route path="/about" component={About}/>
-      <Route path="/roster" component={Roster}/>
-      <Route path="/activity" component={Activity}>
+      <Route path="about" component={About}/>
+      <Route path="roster" component={Roster}/>
+      <Route path="activity" component={Activity}>
         <Route path="/user/:userId" component={User}/>
       </Route>
       <Route path="*" component={NoMatch}/>
