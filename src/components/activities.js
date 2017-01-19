@@ -61,25 +61,22 @@ const TableRecentActivity = () => (
 );
 
 const styles = {
-  button: {
-    margin: 12,
-  },
-  exampleImageInput: {
-    cursor: 'pointer',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    width: '100%',
-    opacity: 0,
-  },
-};
-
+    page: {
+        margin: '20px',
+        textAlign: 'left'
+    },
+    TextField: {
+        width: '50%'
+    },
+    button: {
+        color: 'white',
+        backgroundColor: '#155eab'
+    }
+}
 class Activity extends React.Component {
     render() {
         return (      
-        <div>         
+        <div style={styles.page}>         
             <Card>
                 <CardTitle
                     title="Activity Feed" />
