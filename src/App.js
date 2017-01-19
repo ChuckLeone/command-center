@@ -6,7 +6,7 @@ import {grey900} from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Container from './components/container';
-import {Activity} from './components/activities';
+import Activity from './components/activities';
 
 
 const muiTheme = getMuiTheme({
@@ -51,6 +51,17 @@ const About = React.createClass({
   }
  })
 
+ const ActivityFeed = React.createClass({
+  render() {
+    return(
+      <div>
+      <h1>Recent Activity</h1>
+      <Activity />
+      </div>
+    )
+  }
+ })
+
 const NoMatch = React.createClass({
   render() {
     return(
@@ -61,52 +72,12 @@ const NoMatch = React.createClass({
   }
 })
 
-const Users = React.createClass({
-  render() {
-    return (
-      <div>
-        <h1>Users</h1>
-        <div className="master">
-          <ul>
-            {/* use Link to route around the app */}
-            {this.state.users.map(user => (
-              <li key={user.id}><Link to={`/user/${user.id}`}>{user.name}</Link></li>
-            ))}
-          </ul>
-        </div>
-        <div className="detail">
-          {this.props.children}
-        </div>
-      </div>
-    )
-  }
-})
-
-const User = React.createClass({
-  componentDidMount() {
-    this.setState({
-      // route components are rendered with useful information, like URL params
-      // user: findUserById(this.props.params.userId)
-    })
-  },
-
-  render() {
-    return (
-      <div>
-        <h2>{this.state.user.name}</h2>
-        {/* etc. */}
-      </div>
-    )
-  }
-})
-
 render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <Route path="about" component={About}/>
       <Route path="roster" component={Roster}/>
-      <Route path="activity" component={Activity}>
-        <Route path="/user/:userId" component={User}/>
+      <Route path="activity" component={ActivityFeed}>
       </Route>
       <Route path="*" component={NoMatch}/>
     </Route>

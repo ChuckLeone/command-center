@@ -138,16 +138,16 @@ class AppSwitcherBar extends React.Component {
                             <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-home"></i>}><a href='/' style={styles.drawer.MenuItem.a}>Home</a></MenuItem>
                             <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-user-plus"></i>}><a href='/roster' style={styles.drawer.MenuItem.a}>Roster</a></MenuItem>
                             <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-info"></i>}><a href='/about' style={styles.drawer.MenuItem.a}>About</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-calendar"></i>}><a href="#/events" style={styles.drawer.MenuItem.a}>Events</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-newspaper-o"></i>}><a href="#/news" style={styles.drawer.MenuItem.a}>News</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-image"></i>}><a href="#/gallery" style={styles.drawer.MenuItem.a}>Gallery</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-file-text-o"></i>}><a href="#/docs" style={styles.drawer.MenuItem.a}>Docs</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-files-o"></i>}><a href="#/forms" style={styles.drawer.MenuItem.a}>Forms</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-hourglass-3"></i>}><a href="#/service-hours" style={styles.drawer.MenuItem.a}>Service Hours</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-gavel"></i>}><a href="#/elections" style={styles.drawer.MenuItem.a}>Elections</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-money"></i>}><a href="#/finance" style={styles.drawer.MenuItem.a}>Finance</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-calendar"></i>}><a href="/events" style={styles.drawer.MenuItem.a}>Events</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-newspaper-o"></i>}><a href="/news" style={styles.drawer.MenuItem.a}>News</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-image"></i>}><a href="/gallery" style={styles.drawer.MenuItem.a}>Gallery</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-file-text-o"></i>}><a href="/docs" style={styles.drawer.MenuItem.a}>Docs</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-files-o"></i>}><a href="/forms" style={styles.drawer.MenuItem.a}>Forms</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-hourglass-3"></i>}><a href="/service-hours" style={styles.drawer.MenuItem.a}>Service Hours</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-gavel"></i>}><a href="/elections" style={styles.drawer.MenuItem.a}>Elections</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-money"></i>}><a href="/finance" style={styles.drawer.MenuItem.a}>Finance</a></MenuItem>
                             <Divider />
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-gear"></i>}><a href="#/settings" style={styles.drawer.MenuItem.a}>Settings</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-gear"></i>}><a href="/settings" style={styles.drawer.MenuItem.a}>Settings</a></MenuItem>
                     </Drawer>
             </div>
         )
