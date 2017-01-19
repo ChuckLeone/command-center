@@ -1,12 +1,5 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import IconButton from 'material-ui/IconButton';
 import {Card, CardHeader, CardMedia, CardTitle, CardText, CardActions} from 'material-ui/Card';
-import ActionHome from 'material-ui/svg-icons/action/home';
-import ActionAndroid from 'material-ui/svg-icons/action/android';
-import TopBar from './top-bar-nav';
-import FontIcon from 'material-ui/FontIcon';
 
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
@@ -48,26 +41,25 @@ const TableRecentActivity = () => (
   <Table>
     <TableHeader>
       <TableRow>
-        <TableHeaderColumn>ID</TableHeaderColumn>
-        <TableHeaderColumn>Name</TableHeaderColumn>
-        <TableHeaderColumn>Status</TableHeaderColumn>
+        <TableHeaderColumn>Details</TableHeaderColumn>
       </TableRow>
     </TableHeader>
     <TableBody>
       <TableRow>
-        <TableRowColumn>1</TableRowColumn>
-        <TableRowColumn>John Smith</TableRowColumn>
-        <TableRowColumn>Employed</TableRowColumn>
+        <TableRowColumn>You submitted a request for a parking pass.</TableRowColumn>
       </TableRow>
       <TableRow>
-        <TableRowColumn>2</TableRowColumn>
-        <TableRowColumn>Randal White</TableRowColumn>
-        <TableRowColumn>Unemployed</TableRowColumn>
+        <TableRowColumn>A new form approval request was generated.</TableRowColumn>
+      </TableRow>
+      <TableRow>
+        <TableRowColumn>A new event request was submitted.</TableRowColumn>
+      </TableRow>
+      <TableRow>
+        <TableRowColumn>Bake Sale form is awaiting your approval.</TableRowColumn>
       </TableRow>
     </TableBody>
   </Table>
 );
-
 
 const styles = {
   button: {
@@ -91,7 +83,7 @@ class Activity extends React.Component {
         <div>         
             <Card>
                 <CardTitle
-                    title="Recent Activity" />
+                    title="Activity Feed" />
                  <CardText>  
                     <TableRecentActivity />
                 </CardText>

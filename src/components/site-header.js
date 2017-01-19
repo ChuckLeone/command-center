@@ -80,6 +80,13 @@ const styles = {
           backgroundColor: 'black',         
           color: 'white'
       },
+      a: {
+          color: 'white',
+          textAlign: 'left',
+          visted: {
+              color: 'white'
+          }
+      }
   },
   icons: {
       icon: {
@@ -163,12 +170,12 @@ class SiteHeader extends React.Component {
                 <Divider style={styles.userMenu.hr} />
                 <List style={styles.ActivityFeed}>
                     <Subheader style={styles.Subheader}>Activity Feed</Subheader>
-                    <ListItem onTouchTap={this.handleClose} primaryText="You submitted a request for a parking pass." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
-                    <ListItem onTouchTap={this.handleClose} primaryText="A new form approval request was generated." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
-                    <ListItem onTouchTap={this.handleClose} primaryText="A new event request was submitted." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
-                    <ListItem onTouchTap={this.handleClose} primaryText="Bake Sale form is awaiting your approval." leftIcon={<i className="fa fa-flag" />} style={styles.userMenu} />
+                    <ListItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-flag" />} style={styles.userMenu.a}><a href="/activity" style={styles.userMenu.a}>You submitted a request for a parking pass.</a></ListItem>
+                    <ListItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-flag" />} style={styles.userMenu.a}><a href="/activity" style={styles.userMenu.a}>A new form approval request was generated..</a></ListItem>
+                    <ListItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-flag" />} style={styles.userMenu.a}><a href="/activity" style={styles.userMenu.a}>A new event request was submitted.</a></ListItem>
+                    <ListItem onTouchTap={this.handleClose} leftIcon={<i className="fa fa-flag" />} style={styles.userMenu.a}><a href="/activity" style={styles.userMenu.a}>Bake Sale form is awaiting your approval.</a></ListItem>
                     <Divider style={styles.userMenu.hr} />
-                    <ListItem onTouchTap={this.handleClose} style={styles.userMenu}><a href="/activity">See more (12)</a></ListItem>
+                    <ListItem onTouchTap={this.handleClose} style={styles.userMenu.a}><a href="/activity" style={styles.userMenu.a}>See more (12)</a></ListItem>
                 </List>
             </Drawer>
         </div>

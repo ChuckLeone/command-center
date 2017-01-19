@@ -6,6 +6,8 @@ import {grey900} from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Container from './components/container';
+import About from './components/about';
+import Roster from './components/roster';
 import Activity from './components/activities';
 
 
@@ -31,33 +33,26 @@ const App = React.createClass({
  }
 })
 
-const About = React.createClass({
+const AboutApp = React.createClass({
   render() {
     return(
-      <div>
-      <h1>About</h1>
-      </div>
+      <About />
     )
   }
  })
 
- const Roster = React.createClass({
+ const RosterApp = React.createClass({
   render() {
     return(
-      <div>
-      <h1>Roster</h1>
-      </div>
+      <Roster />
     )
   }
  })
 
- const ActivityFeed = React.createClass({
+ const ActivityApp = React.createClass({
   render() {
     return(
-      <div>
-      <h1>Recent Activity</h1>
       <Activity />
-      </div>
     )
   }
  })
@@ -75,9 +70,9 @@ const NoMatch = React.createClass({
 render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <Route path="about" component={About}/>
-      <Route path="roster" component={Roster}/>
-      <Route path="activity" component={ActivityFeed}>
+      <Route path="about" component={AboutApp}/>
+      <Route path="roster" component={RosterApp}/>
+      <Route path="activity" component={ActivityApp}>
       </Route>
       <Route path="*" component={NoMatch}/>
     </Route>
