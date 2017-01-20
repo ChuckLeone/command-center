@@ -37,9 +37,6 @@ const styles = {
       list: {
           padding: '16px 16px 16px 45px'
       },
-      title: {
-        fontSize: '14px'
-      },
       root: {
           backgroundColor: '#333333'
       },
@@ -104,6 +101,10 @@ const styles = {
 };
 
 class AppSwitcherBar extends React.Component {
+    
+    AppName(props) {
+        props.appTitle
+    }
 
       constructor(props) {
         super(props);
@@ -120,7 +121,7 @@ class AppSwitcherBar extends React.Component {
         return (
             <div>
                 <AppBar
-                title={<span style={styles.title}>App Name</span>}
+                title={<span style={styles.title}>{this.AppName}</span>}
                 onLeftIconButtonTouchTap={this.handleToggle}
                 iconElementLeft={<IconButton><NavigationMenu /></IconButton>}
                 iconElementRight={<FlatButton label="Organization Name"></FlatButton>}

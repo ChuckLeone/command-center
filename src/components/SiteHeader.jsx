@@ -10,8 +10,8 @@ import Subheader from 'material-ui/Subheader';
 import IconButton from 'material-ui/IconButton';
 
 import FlatButton from 'material-ui/FlatButton';
-import UserAvatar from './user-avatar';
-import MasterNav from './master-nav';
+import UserAvatar from './UserAvatar';
+import MasterNav from './MasterNav';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 

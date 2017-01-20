@@ -1,6 +1,6 @@
 import React from 'react';
-import {Card, CardHeader, CardMedia, CardTitle, CardText, CardActions} from 'material-ui/Card';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 const Officers = () => (
   <Table>
@@ -28,7 +28,7 @@ const Officers = () => (
 );
 
 const CurrentRoster = () => (
- <Table>
+  <Table>
     <TableHeader>
       <TableRow>
         <TableHeaderColumn>Name</TableHeaderColumn>
@@ -68,28 +68,44 @@ const CurrentRoster = () => (
   </Table>
 );
 
+const styles = {
+  page: {
+    margin: '20px',
+    textAlign: 'left',
+  },
+  TextField: {
+    width: '50%',
+  },
+  button: {
+    color: 'white',
+    backgroundColor: '#155eab',
+  },
+};
 
 class Roster extends React.Component {
-    render () {
-        return (
-            <div>        
-            <Card>
-                <CardTitle
-                    title="Officers" />
-                 <CardText>  
-                    <Officers />
-                </CardText>
-            </Card> 
-            <Card>
-                <CardTitle
-                    title="Active Members" />
-                 <CardText>  
-                    <CurrentRoster />
-                </CardText>
-            </Card>
-        </div>
-        )
-    }
+  render() {
+    return (
+      <div style={styles.page}>
+        <Card>
+          <CardTitle
+            title="Officers"
+          />
+          <CardText>
+            <Officers />
+          </CardText>
+        </Card>
+        <br />
+        <Card>
+          <CardTitle
+            title="Active Members"
+          />
+          <CardText>
+            <CurrentRoster />
+          </CardText>
+        </Card>
+      </div>
+    );
+  }
 }
 
 export default Roster;
