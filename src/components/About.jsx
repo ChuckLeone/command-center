@@ -37,7 +37,7 @@ class About extends React.Component {
               style={styles.TextField}
               floatingLabelText="Full Description"
               value="A group of motorcycle enthusiasts based in the Western New York region.
-              We gather to talk about our machines, ride them and tinker. Join us if you ride 
+              We gather to talk about our machines, ride them and tinker. Join us if you ride
               or simply appreciate these beautiful machines."
             />
           </CardText>
@@ -48,10 +48,10 @@ class About extends React.Component {
             title="Contact Information"
           />
           <CardText>
-            <p>Please note that the information you enter into the contact fields below will be displayed on your organization's 
+            <p>Please note that the information you enter into the contact fields below will be displayed on your organization's
             public profile page and visible to anyone in or outside of your community.</p>
-            <p>In order to avoid potential spam or solicitation messages, you may wish to consider publishing a 
-            shared organization address, phone number, or email address rather than using your 
+            <p>In order to avoid potential spam or solicitation messages, you may wish to consider publishing a
+            shared organization address, phone number, or email address rather than using your
             personal contact information.</p>
             <TextField
               style={styles.TextField}

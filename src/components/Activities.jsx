@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardTitle, CardText} from 'material-ui/Card';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 const TableRecentActivity = () => (
@@ -40,19 +40,17 @@ const styles = {
   },
 };
 
-const Activity = () => {
-  return (
-    <div style={styles.page}>
-      <Card>
-        <CardTitle
-          title="Activity Feed"
-        />
-        <CardText>
-          <TableRecentActivity />
-        </CardText>
-      </Card>
-    </div>
+const Activity = () => (
+  <div style={styles.page}>
+    <Card>
+      <CardTitle
+        title="Activity Feed"
+      />
+      <CardText>
+        <TableRecentActivity />
+      </CardText>
+    </Card>
+  </div>
   );
-};
 
 export default Activity;

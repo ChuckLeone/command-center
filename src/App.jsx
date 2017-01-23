@@ -6,6 +6,7 @@ import { grey900 } from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Container from './components/Container';
+import Home from './components/Home';
 import About from './components/About';
 import Roster from './components/Roster';
 import Activity from './components/Activities';
@@ -21,51 +22,67 @@ const muiTheme = getMuiTheme({
   },
 });
 
-const App = React.createClass({
+class App extends React.Component {
   render() {
+    let pageRender;
+    if (this.props.children) {
+      pageRender = <Container>{this.props.children}</Container>;
+    } else {
+      pageRender = <Container><HomeApp /></Container>;
+    }
     return (
       <div className="App">
         <MuiThemeProvider muiTheme={muiTheme}>
-          <Container>{this.props.children}</Container>
+          { pageRender }
         </MuiThemeProvider>
       </div>
     );
-  },
-});
+  }
+}
 
-const AboutApp = React.createClass({
+class HomeApp extends React.Component {
+  render() {
+    return (
+      <div>
+        <Home />
+      </div>
+    );
+  }
+}
+
+class AboutApp extends React.Component {
   render() {
     return (
       <About />
     );
-  },
-});
+  }
+}
 
-const RosterApp = React.createClass({
+class RosterApp extends React.Component {
   render() {
     return (
       <Roster />
     );
-  },
-});
+  }
+}
 
-const ActivityApp = React.createClass({
+class ActivityApp extends React.Component {
   render() {
     return (
       <Activity />
     );
-  },
-});
+  }
+}
 
-const NoMatch = React.createClass({
+class NoMatch extends React.Component {
   render() {
     return (
       <div>
-        <h1>No Match</h1>
+        <Home />
       </div>
     );
   }
-});
+}
 
 render((
   <Router history={browserHistory}>
