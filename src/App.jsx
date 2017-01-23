@@ -28,23 +28,13 @@ class App extends React.Component {
     if (this.props.children) {
       pageRender = <Container>{this.props.children}</Container>;
     } else {
-      pageRender = <Container><HomeApp /></Container>;
+      pageRender = <Container><Home /></Container>;
     }
     return (
       <div className="App">
         <MuiThemeProvider muiTheme={muiTheme}>
           { pageRender }
         </MuiThemeProvider>
-      </div>
-    );
-  }
-}
-
-class HomeApp extends React.Component {
-  render() {
-    return (
-      <div>
-        <Home />
       </div>
     );
   }
@@ -78,7 +68,7 @@ class NoMatch extends React.Component {
   render() {
     return (
       <div>
-        <Home />
+        No matches
       </div>
     );
   }
