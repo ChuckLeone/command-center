@@ -6,6 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 const styles = {
   MasterNav: {
     color: 'white',
+    marginLeft: '20px',
   },
   icon: {
     color: 'white',

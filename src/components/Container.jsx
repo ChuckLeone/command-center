@@ -8,7 +8,7 @@ class Container extends React.Component {
     return (
       <div>
         <SiteHeader />
-        <AppSwitcherBar props={this.props.appTitle} />
+        <AppSwitcherBar title={this.props.title} />
         <div>{this.props.children}</div>
       </div>
     );
