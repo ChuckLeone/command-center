@@ -52,7 +52,8 @@ const styles = {
           padding: '16px 16px 16px 45px'
       },
       title: {
-        fontSize: '14px'
+        fontSize: '14px',
+        backgroundColor: '#000000'
       },
       root: {
           backgroundColor: '#333333'
@@ -67,10 +68,6 @@ const styles = {
       active: {
         color: 'white',
         borderLeft: '3px solid greenyellow'
-      },
-      title: {
-          fontSize: '14px',
-          backgroundColor: '#000000'
       },
       badges: {
         color: 'white',
@@ -130,6 +127,9 @@ const styles = {
     padding: 0,
     marginTop: '-5px'
   },
+  masterNav: {
+    marginLeft: '25px',
+  }
 };
 
 class SiteHeader extends React.Component {
@@ -153,7 +153,7 @@ class SiteHeader extends React.Component {
               title={<span><img src={styles.logo.src} style={styles.logo} /> UB Linked</span>}
               onRightIconButtonTouchTap={this.handleToggle}
               onLeftIconButtonTouchTap={this.handleMenu}
-              iconElementLeft={<MasterNav />}
+              iconElementLeft={<MasterNav style={styles.masterNav} />}
               iconElementRight={<IconButton style={styles.medium}><UserAvatar /></IconButton>}
               style={styles.brand} />
             <Drawer width={300} openSecondary={true} open={this.state.open} containerStyle={styles.userMenu.root}>

@@ -17,6 +17,7 @@ const styles = {
     backgroundColor: '#155eab',
   },
 };
+
 class About extends React.Component {
   render() {
     return (

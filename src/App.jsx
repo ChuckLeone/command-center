@@ -10,7 +10,14 @@ import Home from './components/Home';
 import About from './components/About';
 import Roster from './components/Roster';
 import Activity from './components/Activities';
+import AppSwitcherBar from './components/AppSwitcher';
+import SiteHeader from './components/SiteHeader';
 
+const styles={
+  full: {
+    height: '100%',
+  },
+};
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -22,44 +29,75 @@ const muiTheme = getMuiTheme({
   },
 });
 
-class App extends React.Component {
+const App = React.createClass({
+  getInitialState() {
+    return {
+      selectedApp: 'home',
+    };
+  },
+  onChangeApp(e) {
+    console.log('App was switched');
+    this.setState({ selectedApp: e.target.value });
+  },
   render() {
     let pageRender;
     if (this.props.children) {
-      pageRender = <Container>{this.props.children}</Container>;
+      pageRender =
+        (<div>
+          <SiteHeader />
+          <AppSwitcherBar title={this.props.selectedApp} onChange={this.props.onChangeApp} />
+          <div>{this.props.children}</div>
+        </div>);
     } else {
-      pageRender = <Container><Home /></Container>;
+      pageRender =
+        (<div>
+          <SiteHeader />
+          <AppSwitcherBar title="Home" onChange={this.props.onChangeApp} />
+          <Home />
+        </div>);
     }
     return (
-      <div className="App">
+      <div className="App" style={styles.full}>
         <MuiThemeProvider muiTheme={muiTheme}>
           { pageRender }
         </MuiThemeProvider>
       </div>
     );
-  }
-}
+  },
+});
 
 class AboutApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.title = 'About App';
+  }
   render() {
     return (
-      <About />
+      <About title={this.title} value={this.title} />
     );
   }
 }
 
 class RosterApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.title = 'Roster App';
+  }
   render() {
     return (
-      <Roster />
+      <Roster title={this.title} value={this.title} />
     );
   }
 }
 
 class ActivityApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.selectedApp = 'Activity Feed';
+  }
   render() {
     return (
-      <Activity />
+      <Activity title={this.selectedApp} />
     );
   }
 }

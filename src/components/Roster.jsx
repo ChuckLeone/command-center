@@ -82,7 +82,9 @@ const styles = {
   },
 };
 
+
 class Roster extends React.Component {
+
   render() {
     return (
       <div style={styles.page}>

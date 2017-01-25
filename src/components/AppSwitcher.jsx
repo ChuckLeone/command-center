@@ -101,10 +101,6 @@ const styles = {
 };
 
 class AppSwitcherBar extends React.Component {
-    
-    AppName(props) {
-        props.appTitle
-    }
 
       constructor(props) {
         super(props);
@@ -121,7 +117,7 @@ class AppSwitcherBar extends React.Component {
         return (
             <div>
                 <AppBar
-                title={<span style={styles.title}>{this.AppName}</span>}
+                title={<span style={styles.title}>{this.props.title}</span>}
                 onLeftIconButtonTouchTap={this.handleToggle}
                 iconElementLeft={<IconButton><NavigationMenu /></IconButton>}
                 iconElementRight={<FlatButton label="Organization Name"></FlatButton>}
@@ -136,10 +132,10 @@ class AppSwitcherBar extends React.Component {
                         open={this.state.open}
                         style={styles.drawer}>
                         <AppBar style={styles.drawer.title} title="Command Center" />
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-home"></i>}><a href='/' style={styles.drawer.MenuItem.a}>Home</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-user-plus"></i>}><a href='/roster' style={styles.drawer.MenuItem.a}>Roster</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-info"></i>}><a href='/about' style={styles.drawer.MenuItem.a}>About</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-calendar"></i>}><a href="/events" style={styles.drawer.MenuItem.a}>Events</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} onChange={this.props.onChange} leftIcon={<i className="fa fa-home"></i>}><a href='/' value="Home" style={styles.drawer.MenuItem.a}>Home</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} onChange={this.props.onChange} leftIcon={<i className="fa fa-user-plus"></i>}><a href='/roster' value="Roster" style={styles.drawer.MenuItem.a}>Roster</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} onChange={this.props.onChange} leftIcon={<i className="fa fa-info"></i>}><a href='/about' value="About" style={styles.drawer.MenuItem.a}>About</a></MenuItem>
+                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-calendar"></i>}><a href="/events" value="Events" style={styles.drawer.MenuItem.a}>Events</a></MenuItem>
                             <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-newspaper-o"></i>}><a href="/news" style={styles.drawer.MenuItem.a}>News</a></MenuItem>
                             <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-image"></i>}><a href="/gallery" style={styles.drawer.MenuItem.a}>Gallery</a></MenuItem>
                             <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-file-text-o"></i>}><a href="/docs" style={styles.drawer.MenuItem.a}>Docs</a></MenuItem>
