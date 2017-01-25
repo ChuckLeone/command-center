@@ -51,7 +51,7 @@ class TableRecentActivity extends React.Component {
             <TableRowColumn>Requested requested to join this organization.</TableRowColumn>
           </TableRow>
           <TableRow>
-            <TableRowColumn><Avatar style={style} src="img/selina-kyle.jpg" /></TableRowColumn>
+            <TableRowColumn><Avatar src="img/selina-kyle.jpg" /></TableRowColumn>
             <TableRowColumn>Selina K</TableRowColumn>
             <TableRowColumn>Reviewed an event request.</TableRowColumn>
           </TableRow>
