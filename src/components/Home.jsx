@@ -38,7 +38,7 @@ const styles = {
 };
 class Nav extends React.Component {
   render() {
-    return(
+    return (
       <List style={styles.List}>
         <ListItem style={styles.listItem.active} leftIcon={<i className="fa fa-home" style={styles.icons} />}>Home</ListItem>
         <ListItem style={styles.listItem} leftIcon={<i className="fa fa-flag" style={styles.icons} />}>My Involvement</ListItem>

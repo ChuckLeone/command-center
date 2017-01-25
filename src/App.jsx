@@ -13,7 +13,7 @@ import Activity from './components/Activities';
 import AppSwitcherBar from './components/AppSwitcher';
 import SiteHeader from './components/SiteHeader';
 
-const styles={
+const styles = {
   full: {
     height: '100%',
   },

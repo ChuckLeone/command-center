@@ -4,7 +4,7 @@ import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowCol
 
 class TablePendingActions extends React.Component {
 
-   constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -21,13 +21,14 @@ class TablePendingActions extends React.Component {
     };
   }
 
-  render () { 
+  render() {
     return (
       <Table>
-        <TableHeader 
+        <TableHeader
           displaySelectAll={this.state.showCheckboxes}
           adjustForCheckbox={this.state.showCheckboxes}
-          enableSelectAll={this.state.enableSelectAll} >
+          enableSelectAll={this.state.enableSelectAll}
+        >
           <TableRow>
             <TableHeaderColumn>Action</TableHeaderColumn>
             <TableHeaderColumn>Detail</TableHeaderColumn>
@@ -52,7 +53,7 @@ class TablePendingActions extends React.Component {
           </TableRow>
         </TableBody>
       </Table>
-    )
+    );
   }
 
 }
