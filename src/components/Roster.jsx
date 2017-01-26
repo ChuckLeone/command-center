@@ -245,8 +245,17 @@ class Members extends React.Component {
         </TableBody>
         <TableFooter>
           <TableRow>
-            <TableRowColumn />
+            <TableRowColumn></TableRowColumn>
             <TableRowColumn>
+              <FlatButton
+                href="/roster/message"
+                label="End Selected Memberships"
+                primary
+                style={styles.button}
+                icon={<i className="fa fa-user-times" style={styles.button.a} />}
+              />
+              </TableRowColumn>
+              <TableRowColumn>
               <FlatButton
                 href="/roster/message"
                 label="Message Selected Members"
@@ -255,14 +264,6 @@ class Members extends React.Component {
                 icon={<i className="fa fa-envelope" style={styles.button.a} />}
               />
             </TableRowColumn>
-            <TableRowColumn>
-              <FlatButton
-                href="/roster/message"
-                label="End Selected Memberships"
-                primary
-                style={styles.button}
-                icon={<i className="fa fa-user-times" style={styles.button.a} />}
-              /></TableRowColumn>
           </TableRow>
         </TableFooter>
       </Table>
