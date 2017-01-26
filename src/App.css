@@ -23,3 +23,10 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+@media (min-width: 320px) and (max-width: 640px) {
+  button {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

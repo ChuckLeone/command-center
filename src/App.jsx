@@ -13,7 +13,7 @@ import Activity from './components/Activities';
 import AppSwitcherBar from './components/AppSwitcher';
 import SiteHeader from './components/SiteHeader';
 
-const styles={
+const styles = {
   full: {
     height: '100%',
   },
@@ -43,14 +43,14 @@ const App = React.createClass({
     let pageRender;
     if (this.props.children) {
       pageRender =
-        (<div>
+        (<div style={styles.full}>
           <SiteHeader />
           <AppSwitcherBar title={this.props.selectedApp} onChange={this.props.onChangeApp} />
           <div>{this.props.children}</div>
         </div>);
     } else {
       pageRender =
-        (<div>
+        (<div style={styles.full}>
           <SiteHeader />
           <AppSwitcherBar title="Home" onChange={this.props.onChangeApp} />
           <Home />
