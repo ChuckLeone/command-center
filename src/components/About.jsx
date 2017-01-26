@@ -73,7 +73,6 @@ class About extends React.Component {
         <FlatButton
           label="Update"
           style={styles.button}
-
           hoverColor="#4d90fe"
           icon={<i className="fa fa-save" />}
         />

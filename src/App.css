@@ -19,11 +19,14 @@
   font-size: large;
 }
 
+button {
+  background-color: 'blue';
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 @media (min-width: 320px) and (max-width: 640px) {
   button {
     width: 100%;

@@ -46,7 +46,7 @@ const App = React.createClass({
         (<div style={styles.full}>
           <SiteHeader />
           <AppSwitcherBar title={this.props.selectedApp} onChange={this.props.onChangeApp} />
-          <div>{this.props.children}</div>
+          <div style={styles.full}>{this.props.children}</div>
         </div>);
     } else {
       pageRender =

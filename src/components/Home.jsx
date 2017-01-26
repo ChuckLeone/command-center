@@ -1,8 +1,8 @@
 import React from 'react';
+import { List, ListItem } from 'material-ui/List';
 import Widgets from './Widgets';
 import PendingActions from './PendingActions';
 import RecentActivity from './RecentActivity';
-import { List, ListItem } from 'material-ui/List';
 
 const styles = {
   page: {
@@ -36,6 +36,7 @@ const styles = {
     },
   },
 };
+
 class Nav extends React.Component {
   render() {
     return (
