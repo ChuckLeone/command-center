@@ -308,7 +308,7 @@ class MemberFilter extends React.Component {
   }
 }
 
-const Roster = () => (
+const RosterOld = () => (
   <div style={styles.page}>
     <div style={styles.page.left}>
       <Nav />
@@ -336,4 +336,40 @@ const Roster = () => (
   </div>
 );
 
+class Roster extends React.Component {
+  constructor(props) {
+        super(props);
+        this.title = 'Roster';
+      };
+
+  render() {
+    return (
+      <div style={styles.page}>
+    <div style={styles.page.left}>
+      <Nav />
+    </div>
+    <div style={styles.page.right}>
+      <Card>
+        <CardHeader
+          title="Officers"
+          subtitle="Number of officers: 3"
+        />
+        <CardText>
+          <Officers />
+        </CardText>
+      </Card>
+      <br />
+      <Card>
+      <CardHeader title="Member Roster">
+        <MemberFilter />
+      </CardHeader> 
+        <CardText>
+          <Members />
+        </CardText>
+      </Card>
+    </div>
+  </div>
+    )
+  }
+}
 export default Roster;

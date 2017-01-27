@@ -10,9 +10,11 @@ import Subheader from 'material-ui/Subheader';
 import IconButton from 'material-ui/IconButton';
 
 import FlatButton from 'material-ui/FlatButton';
+import Avatar from 'material-ui/Avatar';
 import UserAvatar from './UserAvatar';
 import MasterNav from './MasterNav';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
 injectTapEventPlugin();
 
 const styles = {
@@ -106,6 +108,9 @@ const styles = {
       },
       commandCenter: {
           color: 'white'
+      },
+      organization: {
+          color: 'LightSeaGreen'
       }
   },
   secondaryText: {
@@ -162,13 +167,21 @@ class SiteHeader extends React.Component {
                 <AppBar style={styles.userMenu.title} iconElementLeft={<FlatButton label="Bruce Wayne" style={styles.userMenu.avatar} />} iconElementRight={<UserAvatar style={styles.userMenu.avatar} />} />
                 <List style={styles.userMenu}>
                     <Divider style={styles.userMenu.hr} />
-                    <ListItem onTouchTap={this.handleClose} primaryText="My Profile" style={styles.userMenu} leftIcon={<i className="fa fa-user-circle" style={styles.icons.avatar}></i>} />
+                    <ListItem onTouchTap={this.handleClose} style={styles.userMenu} leftIcon={<i className="fa fa-user-circle" style={styles.icons.avatar}></i>}><a href="/my-profile" style={styles.userMenu.a}>My Profile</a></ListItem>
                     <Divider style={styles.userMenu.hr} />
-                    <ListItem onTouchTap={this.handleClose} primaryText="Settings" style={styles.userMenu} leftIcon={<i className="fa fa-gear" style={styles.icons.settings}></i>} />
+                    <ListItem onTouchTap={this.handleClose} style={styles.userMenu} leftIcon={<i className="fa fa-gear" style={styles.icons.settings}></i>}><a href="/my-profile" style={styles.userMenu.a}>Settings</a></ListItem>
                     <Divider style={styles.userMenu.hr} />
-                    <ListItem onTouchTap={this.handleClose} primaryText="UB Linked Home" style={styles.userMenu} leftIcon={<i className="fa fa-home" style={styles.icons.discovery}></i>} />
+                    <ListItem onTouchTap={this.handleClose} style={styles.userMenu} leftIcon={<i className="fa fa-home" style={styles.icons.discovery}></i>}><a href="/my-profile" style={styles.userMenu.a}>UB Linked Home</a></ListItem>
                     <Divider style={styles.userMenu.hr} />
-                    <ListItem onTouchTap={this.handleClose} primaryText="Command Center" style={styles.userMenu.active} rightIcon={<Badge badgeContent={13} badgeStyle={styles.userMenu.badges}/>} leftIcon={<i className="fa fa-rocket" style={styles.icons.commandCenter}></i>} />
+                    <ListItem onTouchTap={this.handleClose} style={styles.userMenu.active} rightIcon={<Badge badgeContent={13} badgeStyle={styles.userMenu.badges}/>} leftIcon={<i className="fa fa-rocket" style={styles.icons.commandCenter}></i>}>
+                    <a href="/" style={styles.userMenu.a}>Command Center</a></ListItem>
+                </List>
+                <Divider style={styles.userMenu.hr} />
+                <List>
+                    <Subheader style={styles.Subheader}>My Involvement</Subheader>
+                    <ListItem onTouchTap={this.handleClose} leftIcon={<Avatar src='img/gamers.jpg' />} style={styles.userMenu.a}><a href="/activity" style={styles.userMenu.a}>CL Gamers</a></ListItem>
+                    <ListItem onTouchTap={this.handleClose} leftIcon={<Avatar src='img/chess-club.jpg' />} style={styles.userMenu.a}><a href="/activity" style={styles.userMenu.a}>Chess Club</a></ListItem>
+                    <ListItem onTouchTap={this.handleClose} leftIcon={<Avatar src='img/cooking-club.jpg' />} style={styles.userMenu.a}><a href="/activity" style={styles.userMenu.a}>Cooking Club</a></ListItem>
                 </List>
                 <Divider style={styles.userMenu.hr} />
                 <List style={styles.ActivityFeed}>

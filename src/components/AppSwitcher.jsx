@@ -1,11 +1,13 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
-import MenuItem from 'material-ui/MenuItem';
+import { Menu, MenuItem } from 'material-ui/Menu';
 import IconButton from 'material-ui/IconButton';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import FlatButton from 'material-ui/FlatButton';
+import FontIcon from 'material-ui/FontIcon';
 
 const styles = {
   avatar: {
@@ -101,23 +103,32 @@ const styles = {
 };
 
 class AppSwitcherBar extends React.Component {
-
       constructor(props) {
         super(props);
-        this.state = {open: false};
+        this.state = {
+            items: {open: false}, 
+        };
       };
+      
+     
 
       handleToggle = () => this.setState({open: !this.state.open});
 
-      handleOpen = () => this.seteState({open: !this.state.open});
+      handleOpen = () => this.setState({open: !this.state.open});
 
       handleClose = () => this.setState({open: false});
 
+     handleChangeApp(title, path) {
+         this.setState({title, open: false});
+        setTimeout(() => browserHistory.push(path));
+     }
       render() {
+        const { title = 'home' } = this.state || {};
+
         return (
             <div>
                 <AppBar
-                title={<span style={styles.title}>{this.props.title}</span>}
+                title={<span style={styles.title}>{title}</span>}
                 onLeftIconButtonTouchTap={this.handleToggle}
                 iconElementLeft={<IconButton><NavigationMenu /></IconButton>}
                 iconElementRight={<FlatButton label="Organization Name"></FlatButton>}
@@ -132,19 +143,21 @@ class AppSwitcherBar extends React.Component {
                         open={this.state.open}
                         style={styles.drawer}>
                         <AppBar style={styles.drawer.title} title="Command Center" />
-                            <MenuItem onTouchTap={this.handleToggle} onChange={this.props.onChange} leftIcon={<i className="fa fa-home"></i>}><a href='/' value="Home" style={styles.drawer.MenuItem.a}>Home</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} onChange={this.props.onChange} leftIcon={<i className="fa fa-user-plus"></i>}><a href='/roster' value="Roster" style={styles.drawer.MenuItem.a}>Roster</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} onChange={this.props.onChange} leftIcon={<i className="fa fa-info"></i>}><a href='/about' value="About" style={styles.drawer.MenuItem.a}>About</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-calendar"></i>}><a href="/events" value="Events" style={styles.drawer.MenuItem.a}>Events</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-newspaper-o"></i>}><a href="/news" style={styles.drawer.MenuItem.a}>News</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-image"></i>}><a href="/gallery" style={styles.drawer.MenuItem.a}>Gallery</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-file-text-o"></i>}><a href="/docs" style={styles.drawer.MenuItem.a}>Docs</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-files-o"></i>}><a href="/forms" style={styles.drawer.MenuItem.a}>Forms</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-hourglass-3"></i>}><a href="/service-hours" style={styles.drawer.MenuItem.a}>Service Hours</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-gavel"></i>}><a href="/elections" style={styles.drawer.MenuItem.a}>Elections</a></MenuItem>
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-money"></i>}><a href="/finance" style={styles.drawer.MenuItem.a}>Finance</a></MenuItem>
+                        <Menu>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('Home', '/')} leftIcon={<FontIcon className="fa fa-home" />}>Home</MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('Roster', '/roster')} leftIcon={<FontIcon className="fa fa-user-plus" />}>Roster</MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('About', '/about')} leftIcon={<FontIcon className="fa fa-info" />}>About</MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('Events', '/events')} leftIcon={<FontIcon className="fa fa-calendar" />}>Events</MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('News', '/news')} leftIcon={<FontIcon className="fa fa-newspaper-o" />}>News</MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('Gallery', '/gallery')} leftIcon={<FontIcon className="fa fa-image" />}>Gallery</MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('Documents', '/documents')} leftIcon={<FontIcon className="fa fa-file-text-o" />}>Documents</MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('Forms', '/forms')} leftIcon={<FontIcon className="fa fa-files-o" />}>Forms</MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('Service Hours', '/service-hrs')} leftIcon={<FontIcon className="fa fa-hourglass-3" />}>Service Hours</MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('Elections', '/elections')} leftIcon={<FontIcon className="fa fa-gavel" />}>Elections</MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('Finance', '/finance')} leftIcon={<FontIcon className="fa fa-money" />}>Finance</MenuItem>
                             <Divider />
-                            <MenuItem onTouchTap={this.handleToggle} leftIcon={<i className="fa fa-gear"></i>}><a href="/settings" style={styles.drawer.MenuItem.a}>Settings</a></MenuItem>
+                            <MenuItem onTouchTap={()=> this.handleChangeApp('Settings', '/settings')}leftIcon={<FontIcon className="fa fa-gear" />}>Settings</MenuItem>
+                        </Menu>
                     </Drawer>
             </div>
         )

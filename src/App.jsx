@@ -32,12 +32,12 @@ const muiTheme = getMuiTheme({
 const App = React.createClass({
   getInitialState() {
     return {
-      selectedApp: 'home',
+      title: 'home',
     };
   },
   onChangeApp(e) {
-    console.log('App was switched');
-    this.setState({ selectedApp: e.target.value });
+    alert('App was switched');
+    this.setState({ title: e.target.value });
   },
   render() {
     let pageRender;
@@ -45,14 +45,14 @@ const App = React.createClass({
       pageRender =
         (<div style={styles.full}>
           <SiteHeader />
-          <AppSwitcherBar title={this.props.selectedApp} onChange={this.props.onChangeApp} />
+          <AppSwitcherBar onChange={this.onChangeApp} />
           <div style={styles.full}>{this.props.children}</div>
         </div>);
     } else {
       pageRender =
         (<div style={styles.full}>
           <SiteHeader />
-          <AppSwitcherBar title="Home" onChange={this.props.onChangeApp} />
+          <AppSwitcherBar onChange={this.onChangeApp} />
           <Home />
         </div>);
     }
