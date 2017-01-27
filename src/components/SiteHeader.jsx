@@ -36,7 +36,8 @@ const styles = {
     logo: {
         src: 'img/ub_white.png',
         height: '24px',
-        width: '24px'
+        width: '24px',
+        margin: '5px',
     },
     avatar: {
         float: 'right',
@@ -146,14 +147,15 @@ class SiteHeader extends React.Component {
 
     handleUserToggle = () => this.setState({open: !this.state.open});
 
+    handleMenu = () => <a href="/" />;
+
     render() {
         return (
             <div>            
             <AppBar
-              title={<span><img src={styles.logo.src} style={styles.logo} /> UB Linked</span>}
               onRightIconButtonTouchTap={this.handleToggle}
               onLeftIconButtonTouchTap={this.handleMenu}
-              iconElementLeft={<MasterNav style={styles.masterNav} />}
+              iconElementLeft={<span><img src={styles.logo.src} style={styles.logo} /> UB Linked  |  Command Center</span>}
               iconElementRight={<IconButton style={styles.medium}><UserAvatar /></IconButton>}
               style={styles.brand} />
             <Drawer width={300} openSecondary={true} open={this.state.open} containerStyle={styles.userMenu.root}>
@@ -164,7 +166,7 @@ class SiteHeader extends React.Component {
                     <Divider style={styles.userMenu.hr} />
                     <ListItem onTouchTap={this.handleClose} primaryText="Settings" style={styles.userMenu} leftIcon={<i className="fa fa-gear" style={styles.icons.settings}></i>} />
                     <Divider style={styles.userMenu.hr} />
-                    <ListItem onTouchTap={this.handleClose} primaryText="Organization Home" style={styles.userMenu} leftIcon={<i className="fa fa-home" style={styles.icons.discovery}></i>} />
+                    <ListItem onTouchTap={this.handleClose} primaryText="UB Linked Home" style={styles.userMenu} leftIcon={<i className="fa fa-home" style={styles.icons.discovery}></i>} />
                     <Divider style={styles.userMenu.hr} />
                     <ListItem onTouchTap={this.handleClose} primaryText="Command Center" style={styles.userMenu.active} rightIcon={<Badge badgeContent={13} badgeStyle={styles.userMenu.badges}/>} leftIcon={<i className="fa fa-rocket" style={styles.icons.commandCenter}></i>} />
                 </List>
