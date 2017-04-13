@@ -166,8 +166,8 @@ class AppSwitcherBar extends React.Component {
                             <Divider />
                         </Menu>
                         <List>
-                            <Subheader>Admin Tools</Subheader>
-                            <ListItem primaryText="Organizations" leftIcon={<FontIcon className="fa fa-users" />} 
+                            <Subheader>Branch Tools for Branch Name</Subheader>
+                            <ListItem primaryText="Organization Tools" leftIcon={<FontIcon className="fa fa-users" />} 
                                 initiallyOpen={false}
                                 primaryTogglesNestedList={true}
                                 nestedItems={[
@@ -175,170 +175,37 @@ class AppSwitcherBar extends React.Component {
                                     key={1}
                                     style={styles.nestedItem}
                                     primaryText="Organization List"
-                                    onTouchTap={()=> this.handleChangeApp('Admin Organizations', '/admin/organizations')}
+                                    onTouchTap={()=> this.handleChangeApp('Admin Organizations', '/admin/organizations/list')}
                                     />,
                                     <ListItem
                                     key={2}
                                     style={styles.nestedItem}
-                                    primaryText="Registrations"
-                                    onTouchTap={()=> this.handleChangeApp('Admin Organizations', '/admin/organizations/registrations')}
-                                    />,
-                                    <ListItem
-                                    key={3}
-                                    style={styles.nestedItem}
-                                    primaryText="Messaging"
-                                    onTouchTap={()=> this.handleChangeApp('Admin Organizations', '/admin/organizations/messaging')}
-                                    />,
-                                     <ListItem
-                                    key={4}
-                                    style={styles.nestedItem}
-                                    primaryText="Text Messaging"
-                                    onTouchTap={()=> this.handleChangeApp('Admin Organizations', '/admin/organizations/text-messaging')}
-                                    />,
-                                     <ListItem
-                                    key={5}
-                                    style={styles.nestedItem}
-                                    primaryText="Organization Tree"
-                                    onTouchTap={()=> this.handleChangeApp('Admin Organizations', '/admin/organizations/organization-tree')}
-                                    />,
-                                     <ListItem
-                                    key={6}
-                                    style={styles.nestedItem}
-                                    primaryText="Settings"
-                                    onTouchTap={()=> this.handleChangeApp('Admin Organizations', '/admin/organizations/settings')}
+                                    primaryText="Organization Types"
+                                    onTouchTap={()=> this.handleChangeApp('Admin Organizations', '/admin/organizations/types')}
                                     />,
                                 ]} />
-                            <ListItem primaryText="Events" leftIcon={<FontIcon className="fa fa-calendar" />} 
+                            <ListItem primaryText="Position Templates" leftIcon={<FontIcon className="fa fa-id-badge" onTouchTap={()=> this.handleChangeApp('Admin Position Templates', '/admin/position-templates')} />} />
+                            <ListItem primaryText="Registrations" leftIcon={<FontIcon className="fa fa-bookmark" onTouchTap={()=> this.handleChangeApp('Admin Registrations', '/admin/registrations')} />} />
+                            <ListItem primaryText="Event Tools" leftIcon={<FontIcon className="fa fa-calendar" />} 
                                     initiallyOpen={false}
                                     primaryTogglesNestedList={true}
                                     nestedItems={[
                                         <ListItem
                                         key={1}
+                                        style={styles.nestedItem}
+                                        primaryText="Event Requests"
+                                        onTouchTap={()=> this.handleChangeApp('Admin Events', '/admin/events/event-requests')} 
+                                        />,
+                                        <ListItem
+                                        key={2}
                                         style={styles.nestedItem}
                                         primaryText="Event List"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Events', '/admin/events/event-list')} 
-                                        />,
-                                        <ListItem
-                                        key={2}
-                                        style={styles.nestedItem}
-                                        primaryText="Settings"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Events', '/admin/events/settings')}
+                                        onTouchTap={()=> this.handleChangeApp('Admin Events', '/admin/events/event-list')}
                                         />,
                                 ]} />
-                            <ListItem primaryText="Users" leftIcon={<FontIcon className="fa fa-user" />} 
-                                    initiallyOpen={false}
-                                    primaryTogglesNestedList={true}
-                                    nestedItems={[
-                                        <ListItem
-                                        key={1}
-                                        style={styles.nestedItem}
-                                        primaryText="User List"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/users/user-list')} 
-                                        />,
-                                         <ListItem
-                                        key={2}
-                                        style={styles.nestedItem}
-                                        primaryText="Past Involvements"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/users/past-involvements')} 
-                                        />,
-                                         <ListItem
-                                        key={3}
-                                        style={styles.nestedItem}
-                                        primaryText="Experiences"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/users/experiences')} 
-                                        />,
-                                         <ListItem
-                                        key={4}
-                                        style={styles.nestedItem}
-                                        primaryText="Outcomes"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/users/outcomes')} 
-                                        />,
-                                         <ListItem
-                                        key={5}
-                                        style={styles.nestedItem}
-                                        primaryText="Experience Imports"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/users/experience-imports')} 
-                                        />,
-                                         <ListItem
-                                        key={6}
-                                        style={styles.nestedItem}
-                                        primaryText="Involvment Imports"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/users/involvement-imports')} 
-                                        />,
-                                         <ListItem
-                                        key={7}
-                                        style={styles.nestedItem}
-                                        primaryText="Service Hours"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/users/service-hours')} 
-                                        />,
-                                        <ListItem
-                                        key={8}
-                                        style={styles.nestedItem}
-                                        primaryText="Settings"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/events/settings')}
-                                        />,
-                                ]}
-                            />
-                            <ListItem primaryText="Elections" leftIcon={<FontIcon className="fa fa-gavel" />} 
-                                    initiallyOpen={false}
-                                    primaryTogglesNestedList={true}
-                                    nestedItems={[
-                                        <ListItem
-                                        key={1}
-                                        style={styles.nestedItem}
-                                        primaryText="User List"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Elections', '/admin/elections/elections-list')} 
-                                        />,
-                                        <ListItem
-                                        key={2}
-                                        style={styles.nestedItem}
-                                        primaryText="Settings"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Elections', '/admin/elections/settings')}
-                                        />,
-                                ]}
-                            />
-                            <ListItem primaryText="Finance" leftIcon={<FontIcon className="fa fa-money" />} 
-                                    initiallyOpen={false}
-                                    primaryTogglesNestedList={true}
-                                    nestedItems={[
-                                        <ListItem
-                                        key={1}
-                                        style={styles.nestedItem}
-                                        primaryText="Request List"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Finance', '/admin/finance/request-list')} 
-                                        />,
-                                         <ListItem
-                                        key={2}
-                                        style={styles.nestedItem}
-                                        primaryText="Payees"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Finance', '/admin/finance/payees')} 
-                                        />,
-                                         <ListItem
-                                        key={3}
-                                        style={styles.nestedItem}
-                                        primaryText="Accounts"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/finace/acounts')} 
-                                        />,
-                                         <ListItem
-                                        key={4}
-                                        style={styles.nestedItem}
-                                        primaryText="Account Tree"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/finance/account-tree')} 
-                                        />,
-                                         <ListItem
-                                        key={5}
-                                        style={styles.nestedItem}
-                                        primaryText="Transaction Imports"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/finace/transaction-imports')} 
-                                        />,
-                                        <ListItem
-                                        key={6}
-                                        style={styles.nestedItem}
-                                        primaryText="Settings"
-                                        onTouchTap={()=> this.handleChangeApp('Admin Users', '/admin/finance/settings')}
-                                        />,
-                                ]}
-                            />
+                            <ListItem primaryText="Additional Fields" leftIcon={<FontIcon className="fa fa-info-circle" />} onTouchTap={()=> this.handleChangeApp('Admin Additional Fields', '/admin/additional-fields')} />
+                            <ListItem primaryText="Messaging" leftIcon={<FontIcon className="fa fa-envelope" />} onTouchTap={()=> this.handleChangeApp('Admin Messaging', '/admin/messaging')} />
+                            <ListItem primaryText="Reports" leftIcon={<FontIcon className="fa fa-bar-chart" />} onTouchTap={()=> this.handleChangeApp('Admin Reports', '/admin/reports')} />
                         </List>
                         
                         <Divider />
