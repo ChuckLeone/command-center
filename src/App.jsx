@@ -10,6 +10,8 @@ import Home from './components/Home';
 import About from './components/About';
 import Roster from './components/Roster';
 import Activity from './components/Activities';
+import OrgList from './components/OrgList';
+import OrgPage from './components/OrgPage';
 import AppSwitcherBar from './components/AppSwitcher';
 import SiteHeader from './components/SiteHeader';
 
@@ -102,6 +104,31 @@ class ActivityApp extends React.Component {
   }
 }
 
+class AdminOrganizationsApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.selectedApp = 'Manage Organizations';
+  }
+  render() {
+    return (
+      <OrgList title={this.selectedApp} />
+    );
+  }
+}
+
+class OrgPageApiaryClub extends React.Component {
+  constructor(props) {
+    super(props);
+    this.selectedApp = 'Apiary Club';
+  }
+  render() {
+    return (
+      <OrgPage title={this.selectedApp} />
+    );
+  }
+}
+
+
 class NoMatch extends React.Component {
   render() {
     return (
@@ -118,6 +145,8 @@ render((
       <Route path="about" component={AboutApp} />
       <Route path="roster" component={RosterApp} />
       <Route path="activity" component={ActivityApp} />
+      <Route path="admin/organizations" component={AdminOrganizationsApp} />
+      <Route path="apiary-club" component={OrgPageApiaryClub} />
       <Route path="*" component={NoMatch} />
     </Route>
   </Router>
